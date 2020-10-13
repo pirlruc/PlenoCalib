@@ -1,0 +1,6 @@
+# FOLDERS TO IGNORE
+data/*
+toolboxes/*
+
+# FILES TO IGNORE
+email_config.txt

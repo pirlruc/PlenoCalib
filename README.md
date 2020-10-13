@@ -14,3 +14,8 @@ Methods for calibrating plenoptic cameras
 
 4. Decode calibration images and extract corresponding corners using LFToolbox
 
+# REFERENCES
+If you use this toolbox please cite the following papers:
+1. Standard Plenoptic Cameras Mapping to Camera Arrays and Calibration based on DLT, N. B. Monteiro, J. P. Barreto and J. Gaspar, IEEE Transactions on Circuits and Systems for Video Technology (TCSVT), November 2019.
+
+2. Generalized Camera Array Model for Standard Plenoptic Cameras, N. B. Monteiro and J. Gaspar, Iberian Robotics Conference, (ROBOT 2019). Porto, Portugal, 20-22 November 2019.
