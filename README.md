@@ -2,12 +2,11 @@
 Methods for calibrating standard plenoptic cameras.
 
 # Usage
-1. Install  the toolbox using:  
+1. Install the toolbox using (it might be needed some manual download of the dependencies identified):  
 ```
     ins = setup.Setup;
     ins.install;
 ```  
-It might be needed some manual download of the dependencies identified within the library.
 
 2. Download Lytro datasets and white images from the following link:  
 https://ieee-dataport.org/open-access/lytro-illum-calibration-dataset
