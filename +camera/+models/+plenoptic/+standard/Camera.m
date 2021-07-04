@@ -1339,10 +1339,10 @@ classdef Camera
             lfield  = utils.enums.Classes.LIGHTFIELD().convert(lfield);
 
             % Obtain indices for lightfield
-            pixels_i      = (1:lfield.size.numberPixels_i) - 0.5;
-            pixels_j      = (1:lfield.size.numberPixels_j) - 0.5;
-            microlenses_k = (1:lfield.size.numberMicrolenses_k) - 0.5;
-            microlenses_l = (1:lfield.size.numberMicrolenses_l) - 0.5;
+            pixels_i      = (1:lfield.size.numberPixels_i);
+            pixels_j      = (1:lfield.size.numberPixels_j);
+            microlenses_k = (1:lfield.size.numberMicrolenses_k);
+            microlenses_l = (1:lfield.size.numberMicrolenses_l);
             [pixels_i,pixels_j,microlenses_k,microlenses_l] = ndgrid( pixels_i ...
                                                                     , pixels_j ...
                                                                     , microlenses_k ...
@@ -1355,14 +1355,17 @@ classdef Camera
             DO_NOT_REMOVE_DISTORTION   = false;
             undistortedObjectRays_stuv = self.obtainObjectRaysFromImageRays( undistortedImageRays_ijkl ...
                                                                            , DO_NOT_REMOVE_DISTORTION );
+            clear undistortedImageRays_ijkl;
             
             % Add distortion to rays
             distortedObjectRays_stuv   = self.distortion.addDistortion(undistortedObjectRays_stuv,2);
+            clear undistortedObjectRays_stuv;
             
             % Obtain image rays from distorted object rays
             distortedObjectRays_stuv   = distortedObjectRays_stuv.setHomogeneousCoordinates();
             distortedImageRays_ijkl    = lightfield.ImageRay(mldivide(self.intrinsicMatrix,distortedObjectRays_stuv.data),true);
             distortedImageRays_ijkl    = distortedImageRays_ijkl.removeHomogeneousCoordinates();
+            clear distortedObjectRays_stuv;
 
             % Remap intensity values
             for iChannel = 1:lfield.size.numberChannels
